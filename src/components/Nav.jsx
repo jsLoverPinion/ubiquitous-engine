@@ -1,28 +1,37 @@
 import styled from "styled-components";
-import { pick } from "../svg/pick.svg";
-import { upload } from "../svg/upload.svg";
+import pick from "../svg/pick.svg";
+import upload from "../svg/upload.svg";
+import trophy from "../svg/trophy.svg";
+import user from "../svg/user.svg";
 const Nav = () => {
   return (
     <>
       <Container>
         <Items>
           <NavItem>
-            <Icon src={pick} />
-            <IconText>upload</IconText>
-          </NavItem>
-          <NavItem>kinga</NavItem>
-          <NavItem>
             <Icon src={upload} />
-            <IconText>pick</IconText>
+            <IconText>pcik</IconText>
           </NavItem>
-          <NavItem>rank</NavItem>
-          <NavItem>profile</NavItem>
+          <NavItem>
+            <Icon src={pick} />
+            <IconText>gallery</IconText>
+          </NavItem>
+          <NavItem>
+            <Icon src={trophy}></Icon>
+            <IconText>ranking</IconText>
+          </NavItem>
+          <NavItem>
+            <Icon src={user}></Icon>
+            <IconText>profile</IconText>
+          </NavItem>
         </Items>
       </Container>
       <RadiusEnd></RadiusEnd>
     </>
   );
 };
+
+const navColor = "#b1b1b1";
 
 const RadiusEnd = styled.div`
   width: 100vw;
@@ -69,7 +78,7 @@ const IconText = styled.p`
   z-index: 4;
 `;
 
-const Icon = styled.svg`
+const Icon = styled.img`
   width: 25px;
   height: 25px;
 `;

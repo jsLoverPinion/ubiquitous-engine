@@ -2,6 +2,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import "normalize.css";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <BrowserRouter>
         <BrowserView></BrowserView>
         <MobileView>
+          <Header />
           <Routes>
             <Route />
             <Route />
