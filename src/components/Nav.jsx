@@ -1,63 +1,49 @@
 import styled from "styled-components";
-import pick from "../svg/pick.svg";
-import upload from "../svg/upload.svg";
-import trophy from "../svg/trophy.svg";
-import user from "../svg/user.svg";
+import { ReactComponent as pick } from "../svg/pick.svg";
+import { ReactComponent as upload } from "../svg/upload.svg";
+import { ReactComponent as trophy } from "../svg/trophy.svg";
+import { ReactComponent as user } from "../svg/user.svg";
+import { icons } from "./data/icon";
 const Nav = () => {
+  const iconArray = [
+    { name: "pick", Src: upload },
+    { name: "gallery", Src: pick },
+    { name: "ranking", Src: trophy },
+    { name: "profile", Src: user },
+  ];
+
   return (
     <>
       <Container>
         <Items>
-          <NavItem>
-            <Icon src={upload} />
-            <IconText>pcik</IconText>
-          </NavItem>
-          <NavItem>
-            <Icon src={pick} />
-            <IconText>gallery</IconText>
-          </NavItem>
-          <NavItem>
-            <Icon src={trophy}></Icon>
-            <IconText>ranking</IconText>
-          </NavItem>
-          <NavItem>
-            <Icon src={user}></Icon>
-            <IconText>profile</IconText>
-          </NavItem>
+          {iconArray.map(({ name, Src, key }) => (
+            <NavItem key={key}>
+              <Src fill="#b1b1b1b1" />
+              <IconText>{name}</IconText>
+            </NavItem>
+          ))}
         </Items>
       </Container>
-      <RadiusEnd></RadiusEnd>
     </>
   );
 };
 
-const navColor = "#b1b1b1";
-
-const RadiusEnd = styled.div`
-  width: 100vw;
-  background-color: #33ccff;
-  height: 10px;
-  position: fixed;
-  bottom: 0;
-  z-index: 0;
-`;
-
 const Container = styled.nav`
   width: 100vw;
   height: 55px;
-  background-color: #33ccff;
+  background-color: #ffffff;
   margin: 0%;
   position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   flex-flow: column;
   z-index: 1;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 20%);
 `;
 
 const NavItem = styled.a`
-  background-color: "#33ccff";
   flex-flow: column;
   display: flex;
   font-size: 12px;
@@ -71,15 +57,12 @@ const Items = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-const IconText = styled.p`
+const IconText = styled.a`
   font-size: 12;
   margin: 4px;
   margin-bottom: 0;
   z-index: 4;
+  color: #b1b1b1b1;
 `;
 
-const Icon = styled.img`
-  width: 25px;
-  height: 25px;
-`;
 export default Nav;

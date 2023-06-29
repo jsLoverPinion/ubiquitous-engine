@@ -5,7 +5,6 @@ import search from "../svg/search.svg";
 const Header = () => {
   return (
     <>
-      <RadiusEnd />
       <Container>
         <Icon src={about} />
         <Title>pickto</Title>
@@ -17,9 +16,10 @@ const Header = () => {
 
 const Container = styled.div`
   width: 100vw;
-  background-color: #33ccff;
+  background-color: #ffffff;
+
   height: 40px;
-  border-radius: 10px;
+  border-radius: 0px 0px 10px 10px;
   z-index: 2;
   position: fixed;
   top: 0;
@@ -27,20 +27,13 @@ const Container = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-`;
-
-const RadiusEnd = styled.div`
-  width: 100vw;
-  height: 10px;
-  background-color: #33ccff;
-  z-index: 1;
-  position: fixed;
-  top: 0;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 20%);
 `;
 
 const Title = styled.a`
   font-size: 30px;
   font-family: "ghanachoco";
+  color: #1294bd;
 `;
 
 const Icon = styled.img`
