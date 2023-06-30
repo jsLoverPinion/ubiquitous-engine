@@ -21,6 +21,7 @@ const Nav = () => {
   const iconclick = (icon, e, key) => {
     console.log(`${icon.name}클릭됨`);
     console.log(`키값 = ${key}`);
+    setBtActive(key);
 
     switch (icon.name) {
       //
@@ -56,8 +57,10 @@ const Nav = () => {
                 iconclick(icon, e, idx);
               }}
             >
-              {icon.src()}
-              <IconText>{icon.name}</IconText>
+              {icon.src(btActive === idx ? "#1294bd" : "#b1b1b1b1")}
+              <IconText txcolor={btActive === idx ? "#1294bd" : "#b1b1b1b1"}>
+                {icon.name}
+              </IconText>
             </NavItem>
           ))}
         </Items>
@@ -100,6 +103,6 @@ const IconText = styled.a`
   margin: 4px;
   margin-bottom: 0;
   z-index: 4;
-  color: #b1b1b1b1;
+  color: ${(props) => props.txcolor};
 `;
 export default Nav;
