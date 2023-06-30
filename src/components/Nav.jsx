@@ -1,25 +1,63 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-restricted-globals */
 import styled from "styled-components";
-import { ReactComponent as pick } from "../svg/pick.svg";
-import { ReactComponent as upload } from "../svg/upload.svg";
-import { ReactComponent as trophy } from "../svg/trophy.svg";
-import { ReactComponent as user } from "../svg/user.svg";
+import { useEffect, useState } from "react";
+import { ReactComponent as Pick } from "../svg/pick.svg";
+import { ReactComponent as Upload } from "../svg/upload.svg";
+import { ReactComponent as Trophy } from "../svg/trophy.svg";
+import { ReactComponent as User } from "../svg/user.svg";
 import { icons } from "./data/icon";
 const Nav = () => {
-  const iconArray = [
-    { name: "pick", Src: upload },
-    { name: "gallery", Src: pick },
-    { name: "ranking", Src: trophy },
-    { name: "profile", Src: user },
-  ];
+  //
+  // const iconArray = [
+  //   { name: "pick", Src: Upload },
+  //   { name: "gallery", Src: Pick },
+  //   { name: "ranking", Src: Trophy },
+  //   { name: "profile", Src: User },
+  // ];
+
+  const [btActive, setBtActive] = useState("");
+
+  const iconclick = (icon, e, key) => {
+    console.log(`${icon.name}클릭됨`);
+    console.log(`키값 = ${key}`);
+
+    switch (icon.name) {
+      //
+      case "pick":
+        break;
+
+      case "gallery":
+        break;
+
+      case "ranking":
+        break;
+
+      case "profile":
+        break;
+
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    console.log(btActive);
+  }, [btActive]);
 
   return (
     <>
       <Container>
         <Items>
-          {iconArray.map(({ name, Src, key }) => (
-            <NavItem key={key}>
-              <Src fill="#b1b1b1b1" />
-              <IconText>{name}</IconText>
+          {icons.map((icon, idx) => (
+            <NavItem
+              key={idx}
+              onTouchStart={(e) => {
+                iconclick(icon, e, idx);
+              }}
+            >
+              {icon.src()}
+              <IconText>{icon.name}</IconText>
             </NavItem>
           ))}
         </Items>
@@ -64,5 +102,4 @@ const IconText = styled.a`
   z-index: 4;
   color: #b1b1b1b1;
 `;
-
 export default Nav;

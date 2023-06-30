@@ -6,7 +6,12 @@ const Header = () => {
   return (
     <>
       <Container>
-        <Icon src={about} />
+        <Icon
+          onClick={() => {
+            console.log("메뉴버튼눌렀따");
+          }}
+          src={about}
+        />
         <Title>pickto</Title>
         <Icon src={search} />
       </Container>

@@ -9,6 +9,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        {/* <BrowserView>
+          <Header />
+          <Routes>
+            <Route />
+            <Route />
+          </Routes>
+          <Nav />
+        </BrowserView> */}
         <MobileView>
           <Header />
           <Routes>
