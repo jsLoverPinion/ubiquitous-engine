@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import "normalize.css";
 import Header from "./components/Header";
-// import Imgs from "./components/imgs";
+import Profile from "./components/Profile";
 
 function App() {
   return (
-    <div className="App">
+    <>
       <BrowserRouter>
         {/* <BrowserView>
           <Header />
@@ -20,13 +20,16 @@ function App() {
         <MobileView>
           <Header />
           <Routes>
-            <Route />
+            <Route path="/pick" />
+            <Route path="/chat" />
+            <Route path="/gallery" />
+            <Route path="/profile" element={<Profile />} />
             <Route />
           </Routes>
           <Nav />
         </MobileView>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

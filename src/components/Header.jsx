@@ -1,17 +1,15 @@
 import { styled } from "styled-components";
 import "../css/font.css";
-import about from "../svg/about.svg";
 import search from "../svg/search.svg";
+import { useLocation } from "react-router-dom";
+
 const Header = () => {
+  const location = useLocation();
+  if (location.pathname === "/profile" || location.pathname === "/chat")
+    return null;
   return (
     <>
       <Container>
-        <Icon
-          onClick={() => {
-            console.log("메뉴버튼눌렀따");
-          }}
-          src={about}
-        />
         <Title>pickto</Title>
         <Icon src={search} />
       </Container>
@@ -22,7 +20,6 @@ const Header = () => {
 const Container = styled.div`
   width: 100vw;
   background-color: #ffffff;
-
   height: 40px;
   border-radius: 0px 0px 10px 10px;
   z-index: 2;
@@ -32,13 +29,14 @@ const Container = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 20%);
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 10%);
 `;
 
 const Title = styled.a`
   font-size: 30px;
   font-family: "ghanachoco";
   color: #1294bd;
+  margin-left: 20px;
 `;
 
 const Icon = styled.img`

@@ -2,25 +2,17 @@
 /* eslint-disable no-restricted-globals */
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { ReactComponent as Pick } from "../svg/pick.svg";
-import { ReactComponent as Upload } from "../svg/upload.svg";
-import { ReactComponent as Trophy } from "../svg/trophy.svg";
-import { ReactComponent as User } from "../svg/user.svg";
 import { icons } from "./data/icon";
+import { useNavigate } from "react-router-dom";
 const Nav = () => {
-  //
-  // const iconArray = [
-  //   { name: "pick", Src: Upload },
-  //   { name: "gallery", Src: Pick },
-  //   { name: "ranking", Src: Trophy },
-  //   { name: "profile", Src: User },
-  // ];
-
-  const [btActive, setBtActive] = useState("");
+  const navigate = useNavigate();
+  const [btActive, setBtActive] = useState(0);
 
   const iconclick = (icon, e, key) => {
-    console.log(`${icon.name}클릭됨`);
+    console.log(`icon.name 값 = ${icon.name}`);
     console.log(`키값 = ${key}`);
+    navigate(`${icon.name}`);
+
     setBtActive(key);
 
     switch (icon.name) {
@@ -37,14 +29,16 @@ const Nav = () => {
       case "profile":
         break;
 
+      case "home":
+        break;
+
+      case "chat":
+        break;
+
       default:
         break;
     }
   };
-
-  useEffect(() => {
-    console.log(btActive);
-  }, [btActive]);
 
   return (
     <>
