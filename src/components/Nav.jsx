@@ -69,13 +69,16 @@ const Container = styled.nav`
   background-color: #ffffff;
   margin: 0%;
   position: fixed;
-  bottom: 0;
   display: flex;
   align-items: center;
   border-radius: 10px 10px 0px 0px;
   flex-flow: column;
   z-index: 1;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 20%);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
 
 const NavItem = styled.a`
