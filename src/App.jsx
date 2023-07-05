@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import "normalize.css";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
+import Pick from "./components/Pick";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <MobileView>
           <Header />
           <Routes>
-            <Route path="/pick" />
+            <Route path="/pick" element={<Pick></Pick>} />
             <Route path="/chat" />
             <Route path="/gallery" />
             <Route path="/profile" element={<Profile />} />

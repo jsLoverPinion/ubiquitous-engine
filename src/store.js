@@ -5,6 +5,8 @@ const useStore = create((set) => ({
   setLoginde: (params) => set((state) => ({ loginde: params })),
   userData: null,
   setUserData: (params) => set((state) => ({ userData: params })),
+  userId: null,
+  setUserId: (params) => set((state) => ({ userId: params })),
 }));
 
 export { useStore };
