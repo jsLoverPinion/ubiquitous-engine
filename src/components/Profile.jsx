@@ -6,8 +6,22 @@ import facebook from "../img/facebook.png";
 import github from "../img/github.png";
 import google from "../img/google.png";
 import Login from "./Login";
+import { getAuth, signOut } from "firebase/auth";
 
 const Profile = () => {
+  const auth = getAuth();
+
+  const clickLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("logout complite");
+        // logout();
+      })
+      .catch((error) => {
+        console.log("logout fail");
+      });
+  };
+
   const { loginde, setLoginde, userData } = useStore();
 
   function logout(params) {
@@ -21,7 +35,7 @@ const Profile = () => {
           <UserNmae>{userData.displayName}</UserNmae>
           <button
             onClick={() => {
-              logout();
+              clickLogout();
             }}
           >
             로그아웃
